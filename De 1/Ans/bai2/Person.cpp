@@ -49,11 +49,9 @@ public:
         if (vB[i].getNameBook() == b[k].getNameBook()) count[i]++;
     }
 
-
     int max = *max_element(count.begin(), count.end());
     vector<Book> res;
-    for (int i = 0; i < vB.size(); i++)
-      if (count[i] == max) res.push_back(vB[i]);
+    for (int i = 0; i < vB.size(); i++) if (count[i] == max) res.push_back(vB[i]);
     return res;
   }
 };
