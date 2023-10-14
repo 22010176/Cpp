@@ -9,7 +9,6 @@ public:
   int start, end;
 
   Interval(int start, int end) : start{ start }, end{ end } {}
-  int getTime() { return end - start; }
   friend ostream& operator<< (ostream& out, Interval& e);
 };
 
