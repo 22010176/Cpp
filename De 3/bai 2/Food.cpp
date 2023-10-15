@@ -15,9 +15,10 @@ private:
 public:
   Food() :name{ to_string(rand()) }, price{ (double)rand() / 100 } {}
   Food(string name, double price) : name{ name }, price{ price } {}
-  void setName(string name) { this->name = name; }
 
+  void setName(string name) { this->name = name; }
   string getName() { return name; }
+
   void setPrice(double price) { this->price = price; }
   double getPrice() { return price; }
 };
@@ -32,7 +33,9 @@ public:
   void display() { cout << *this << endl; }
   void setNumberBox(int numberBox) { this->numberBox = numberBox; }
   int getNumberBox() { return numberBox; }
-  static void sortNumberBox(vector<CannedFood>& vt) { sort(vt.begin(), vt.end(), [](CannedFood& a, CannedFood& b) {return a.getNumberBox() > b.getNumberBox();}); }
+  static void sortNumberBox(vector<CannedFood>& vt) {
+    sort(vt.begin(), vt.end(), [](CannedFood& a, CannedFood& b) {return a.getNumberBox() > b.getNumberBox();});
+  }
   friend ostream& operator<< (ostream& out, CannedFood& a) {
     out << "Name: " << a.getName() << endl;
     out << "Price: " << a.getPrice() << endl;
@@ -51,7 +54,9 @@ public:
   void display() { cout << *this << endl; }
   void setWeight(double weight) { this->weight = weight; }
   double getWeight() { return weight; }
-  static void sortWeight(vector<nonCFood>& vt) { sort(vt.begin(), vt.end(), [](nonCFood& a, nonCFood& b) {return a.getWeight() > b.getWeight();}); }
+  static void sortWeight(vector<nonCFood>& vt) {
+    sort(vt.begin(), vt.end(), [](nonCFood& a, nonCFood& b) {return a.getWeight() > b.getWeight();});
+  }
   friend ostream& operator<< (ostream& out, nonCFood& a) {
     out << "Name: " << a.getName() << endl;
     out << "Price: " << a.getPrice() << endl;
