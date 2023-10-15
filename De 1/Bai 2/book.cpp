@@ -7,6 +7,23 @@
 
 using namespace std;
 
+
+struct _E {
+  Book _b; int times;
+
+  _E(Book b, int t = 0) : _b{ b }, times{ t } {}
+
+  _E& operator++() {
+    times++;
+    return *this;
+  }
+  _E operator++(int i) {
+    _E a = *this; ++a;
+    return a;
+  }
+  void Print() { cout << _b << ": " << times << endl; }
+};
+
 class Book {
 private:
   string nameBook, nameAuthor;

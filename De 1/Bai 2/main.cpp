@@ -28,13 +28,14 @@ void Solve() {
     person.push_back(a);
   }
 
-  // Person::sortPersonAge(person);
-  // for (Person* p : person) p->display();
+  Person::sortPersonAge(person);
+  for (Person* p : person) p->display();
 
-  // vector<int> ages = Person::getListAge(person);
-  // cout << "Ages: " << endl;
-  // for (int i : ages) cout << i << " ";
-  Person::getMaxBookBorrowed(person, vb);
+  vector<int> ages = Person::getListAge(person);
+  cout << "Ages: " << endl;
+  for (int i : ages) cout << i << " ";
+
+  vector<Book> bb = Person::getMaxBookBorrowed(person, vb);
 }
 
 int main() {

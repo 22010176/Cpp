@@ -18,22 +18,6 @@ private:
   int age;
 
 public:
-  struct _E {
-    Book _b; int times;
-
-    _E(Book b, int t = 0) : _b{ b }, times{ t } {}
-
-    _E& operator++() {
-      times++;
-      return *this;
-    }
-    _E operator++(int i) {
-      _E a = *this; ++a;
-      return a;
-    }
-
-    void Print() { cout << _b << ": " << times << endl; }
-  };
   Person() : add{ to_string(rand()) }, name{ to_string(rand()) }, age{ rand() % 100 } {}
   Person(string name, int age, string add, vector<Book> vb) : name(name), age(age), add(add), vb(vb) {};
 
