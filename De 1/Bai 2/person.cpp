@@ -83,7 +83,6 @@ public:
 };
 
 class Adult : public Person {
-private:
 public:
   Adult() : Person() {}
   Adult(string name, int age, string add, vector<Book> vb) : Person(name, age, add, vb) {}
@@ -94,7 +93,6 @@ public:
   }
 };
 class Children : public Person {
-private:
 public:
   Children() : Person() {}
   Children(string name, int age, string add, vector<Book> vb) : Person(name, age, add, vb) {}
