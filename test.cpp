@@ -1,62 +1,52 @@
-// increment_and_decrement1.cpp
+#include "Score.cpp"
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
-class Point {
+class A {
 public:
-  // Declare prefix and postfix increment operators.
-  Point& operator++();       // Prefix increment operator.
-  // Point operator++(int);     // Postfix increment operator.
-
-  // Declare prefix and postfix decrement operators.
-  Point& operator--();       // Prefix decrement operator.
-  // Point operator--(int);     // Postfix decrement operator.
-
-  // Define default constructor.
-  Point() { _x = _y = 0; }
-
-  // Define accessor functions.
-  int x() { return _x; }
-  int y() { return _y; }
-private:
-  int _x, _y;
+  virtual int score() {
+    return 5;
+  };
+  virtual void f() { cout << "A"; }
 };
-ostream& operator<<(ostream& out, Point& a) {
-  cout << a.x() << " " << a.y() << endl;
-}
-// Define prefix increment operator.
-Point& Point::operator++() {
-  _x++, _y++;
-  return *this;
-}
 
-// Define postfix increment operator.
-// Point Point::operator++(int) {
-//   Point temp = *this;
-//   ++*this;
-//   return temp;
-// }
+class B : public A {
+  int d = 90;
+public:
+  B() : A() {}
 
-// Define prefix decrement operator.
-Point& Point::operator--() {
-  _x--, _y--;
-  return *this;
-}
-
-// Define postfix decrement operator.
-// Point Point::operator--(int) {
-//   Point temp = *this;
-//   --*this;
-//   return temp;
-// }
+  int score() { return d; }
+  virtual void f() { cout << "B"; }
+};
+class C : public A {
+  int a = 34;
+public:
+  C() : A() {}
+  // int score() { return a; }
+  virtual void f() { cout << "B"; }
+};
 
 int main() {
-  vector<int> a{ 1,5,3,5,3 };
-  cout << find_if(a.begin(), a.end(), [](int& a) {return a == 3;})[1];
-  // a++;
-  // a--;
+  srand(time(NULL));
 
+  vector<A*> vec;
+  int len = rand() % 100;
+  for (int i = 0; i < len;i++) {
+    A* a;
+    if (rand() % 2 == 0) {
+      B b;
+      a = &b;
+    }
+    else {
+      C c;
+      a = &c;
+    }
+    vec.push_back(a);
+  }
+  sort(vec.begin(), vec.end(), [](A*& a, A*& b) { return a->score() > b->score(); });
+  for (int i = 0; i < vec.size();i++) cout << vec.at(i)->score() << " ";
 }
