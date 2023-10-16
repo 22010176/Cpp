@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-  vector<int> A{ 1, 2, 2, 3, 1, 4, 4, 5 };
+  vector<int> A = vector<int>{ 1, 2, 2, 3, 1, 4, 4, 5 };
   set<int> track;
   int c{};
 
