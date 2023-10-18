@@ -3,6 +3,8 @@
 
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <iostream>
 
 using namespace std;
 
@@ -19,7 +21,10 @@ public:
   string getJob() const { return job; }
   string getId() const { return id; }
 
-  void display() const {}
+  void display() { cout << *this; }
+  friend ostream& operator<< (ostream& out, People& person) {
+
+  }
 };
 
 class Family {
@@ -33,12 +38,13 @@ public:
   string getNameF() const { return nameF; }
   string getStatus() const { return status; }
   string getAdd() const { return add; }
-  vector<People>& getP() { return p; }
+  vector<People> getP() const { return p; }
 
   void display() const {}
 
   static vector<Family> getPoorHousehold(vector<Family> fa) {}
   static vector <Family> findFamilySurname(vector<Family> fa, string surname) {}
+  friend ostream& operator<< (ostream& out, Family& family) {}
 };
 
 class Group {
@@ -55,5 +61,6 @@ public:
 
   static double avgAgeGroup(Group v) {}
   static vector<People> getPeopleHaveNotJob(Group g) {}
+  friend ostream& operator<< (ostream& out, Group& g) {}
 };
 #endif
