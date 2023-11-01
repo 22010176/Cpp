@@ -55,7 +55,7 @@ public:
 
   static vector<EmployeePT> getMaxSalary(vector<EmployeePT>& pt) {
     vector<EmployeePT> res = pt;
-    sort(res.begin(), res.end(), [](EmployeePT& a, EmployeePT& b) {return a.salary() > b.salary();});
+    sort(res.begin(), res.end(), [](EmployeePT& a, EmployeePT& b) { return a.salary() > b.salary(); });
     return res;
   }
   friend ostream& operator<< (ostream& out, EmployeePT& pt) {
